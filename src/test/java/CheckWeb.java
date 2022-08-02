@@ -12,7 +12,6 @@ public class CheckWeb {
     @Tag("localTest")
     @DisplayName("Считывание с данными для локального запуска")
     public void TestingLocalWeb() {
-        System.setProperty("LocalOrSelenoid", "Local");
         WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
         assertThat(config.browser()).isEqualTo("Chrome");
@@ -24,7 +23,6 @@ public class CheckWeb {
     @Tag("remoteTest")
     @DisplayName("Считывание с данными для удаленного запуска")
     public void TestingRemoteWeb() {
-        System.setProperty("LocalOrSelenoid", "Selenoid");
         WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
         assertThat(config.browser()).isEqualTo("Chrome");
