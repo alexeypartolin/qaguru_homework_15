@@ -3,7 +3,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:${LocalOrSelenoid}.properties")
+@Config.Sources("classpath:${env}.properties")
 
 public interface WebConfig extends Config {
 
@@ -16,6 +16,9 @@ public interface WebConfig extends Config {
     String version();
 
     @Key("host")
-    @DefaultValue("http://localhost:4444/wd/hub")
     String host();
+
+    @Key("base.url")
+    @DefaultValue("https://github.com")
+    String baseUrl();
 }
